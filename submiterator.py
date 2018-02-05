@@ -70,10 +70,10 @@ class UnicodeWriter:
             self.writerow(row)
 
 def submiterator_stringify(something):
-  if type(something) is int or type(something) is float or type(something) is list:
-    return str(something).encode('utf-8')
+  if type(something) is str:
+    return something.encode('utf-8')
   else:
-    return something.encode("utf-8")
+    return json.dumps(something).encode("utf-8")
 
 def write_csv(data, filename, delimiter=','):
     fieldnames = data[0].keys()
